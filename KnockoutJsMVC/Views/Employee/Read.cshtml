@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Read";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            PhoneNo
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+    <tbody data-bind="foreach: Employees">
+        <tr>
+            <td data-bind="text: Name"></td>
+            <td data-bind="text: PhoneNo"></td>
+            <td data-bind="text: Email"></td>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Employee")/' + Id }" class="btn-link">Edit</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Employee")/' + Id }" class="btn-link">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+<script src="~/Scripts/employee/KORead.js"></script>
